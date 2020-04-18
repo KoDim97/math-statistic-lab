@@ -43,14 +43,14 @@ def main():
     y2[-1] -= 10
 
     lsm_0, lsm_1 = LsmLinreg(x, y)
-    print(f" МНК, без возмущений: {lsm_0}, {lsm_1}")
+    print(f" LSA, without disturbances: {lsm_0}, {lsm_1}")
     lam_0, lam_1 = get_lam(x, y)
-    print(f" МНM, без возмущений: {lam_0}, {lam_1}")
+    print(f" LMA, without disturbances: {lam_0}, {lam_1}")
 
     lsm_02, lsm_12 = LsmLinreg(x, y2)
-    print(f" МНК, с возмущениями: {lsm_02}, {lsm_12}")
+    print(f" LSA, with disturbances: {lsm_02}, {lsm_12}")
     lam_02, lam_12 = get_lam(x, y2)
-    print(f" МНM, с возмущениями: {lam_02}, {lam_12}")
+    print(f" LMA, with disturbances: {lam_02}, {lam_12}")
 
     draw_res(lsm_0, lsm_1, lam_0, lam_1, x, y, 'Sample without disturbances')
     draw_res(lsm_02, lsm_12, lam_02, lam_12, x, y2, 'Sample with disturbances')
