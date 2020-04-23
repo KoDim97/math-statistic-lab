@@ -8,6 +8,7 @@ import scipy.stats as stats
 
 
 #params
+a = float(3/2)
 alpha = 0.05
 size = 100
 p = 1 - alpha
@@ -16,14 +17,15 @@ k = 6
 
 
 def main():
-    samples = np.random.normal(0, 1, size=size)
+    #samples = np.random.normal(0, 3, size=size)
+    samples = np.random.uniform(-a, 2 * a, size = size)
     mu = np.mean(samples)
     print(mu)
     sigma = np.std(samples)
     print(sigma)
     borders = np.linspace(mu - 1, mu + 1, num=(k - 1))
     real = chi2.ppf(p, k - 1)
-
+    print(real)
     p_arr = np.array([stats.norm.cdf(borders[0])])
     for i in range(len(borders) - 1):
         val = stats.norm.cdf(borders[i + 1]) - stats.norm.cdf(borders[i])
